@@ -1,20 +1,16 @@
 <!-- Describe task in general -->
 
 <p>
-    Sum two passed ints
-</p>
-
-<p style="text-align: center;">
-    <img  title="example" src="{{MEDIA}}example.png" alt="example" style="max-height: 83px"/>
+    You have {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %}. Each value from that {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %} can be either string or integer. You job here is to return two values. First is concatinatio of all strings from the given {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %}. Second one is sum of all integers from the given {% if interpreter.slug == "js-node" %}array{% else %}list{% endif %}.
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input: </strong> Two arguments. Both are ints.
+    <strong>Input: </strong> {% if interpreter.slug == "js-node" %}list of strings and ints{% else %}array of strings ans integers{% endif %}
 </p>
 
 <p>
-    <strong>Output: </strong> Int. 
+    <strong>Output: </strong> {% if interpreter.slug == "js-node" %}array{% else %}list or tuple{% endif %}
 </p>
 
 
@@ -25,12 +21,20 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">sumTwo(2, 3) == 5
-sumTwo(5, 7) == 12
+<pre class="brush: javascript">sumByTypes([]) == ['', 0]
+sumByTypes([1, 2, 3]) == ['', 6]
+sumByTypes(['1', 2, 3]) == ['1', 5]
+sumByTypes(['1', '2', 3]) == ['12', 3]
+sumByTypes(['1', '2', '3']) == ['123', 0]
+sumByTypes(['size', 12, 'in', 45, 0]) == ['sizein', 57]
 </pre>
 {% else %}
-<pre class="brush: python">sum_two(2, 3) == 5
-sum_two(5, 7) == 12
+<pre class="brush: python">sum_by_types([]) == ['', 0]
+sum_by_types([1, 2, 3]) == ['', 6]
+sum_by_types(['1', 2, 3]) == ['1', 5]
+sum_by_types(['1', '2', 3]) == ['12', 3]
+sum_by_types(['1', '2', '3']) == ['123', 0]
+sum_by_types(['size', 12, 'in', 45, 0]) == ['sizein', 57]
 </pre>
 {% endif %}
 </div>

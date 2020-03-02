@@ -1,19 +1,24 @@
 "use strict";
 
-function sumTwo(a, b) {
-    // sums two passed arguments
-
+function sumByTypes(a) {
     // your code here
-    return 0;
+    return undefined;
 }
 
 var assert = require('assert');
+
 if (!global.is_checking) {
     console.log('Example:');
-    console.log(sumTwo(3, 2));
+    console.log(sumByTypes([]));
 
-    // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(sumTwo(3, 2), 5);
-    assert.equal(sumTwo(5, 7), 12);
+    // These "asserts" are used for self-checking
+    assert.deepEqual(sumByTypes([]), ['', 0]);
+    assert.deepEqual(sumByTypes([1, 2, 3]), ['', 6]);
+    assert.deepEqual(sumByTypes(['1', 2, 3]), ['1', 5]);
+    assert.deepEqual(sumByTypes(['1', '2', 3]), ['12', 3]);
+    assert.deepEqual(sumByTypes(['1', '2', '3']), ['123', 0]);
+    assert.deepEqual(sumByTypes(['size', 12, 'in', 45, 0]), ['sizein', 57]);
+
     console.log("Coding complete? Click 'Check' to earn cool rewards!");
 }
+    
