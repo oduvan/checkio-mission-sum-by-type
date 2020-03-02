@@ -1,8 +1,8 @@
 "use strict";
 
-function sumByTypes(a) {
+function sumByTypes(items) {
     // your code here
-    return undefined;
+    return ['', 0];
 }
 
 var assert = require('assert');
