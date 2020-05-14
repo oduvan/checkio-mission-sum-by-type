@@ -1,24 +1,20 @@
-"use strict";
+import assert from "assert";
 
-function sumByTypes(items) {
+function sumByTypes(values: Array<number|string>): [string, number] {
     // your code here
     return ['', 0];
 }
 
-var assert = require('assert');
+console.log('Example:');
+console.log(sumByTypes([]));
 
-if (!global.is_checking) {
-    console.log('Example:');
-    console.log(sumByTypes([]));
+// These "asserts" are used for self-checking
+assert.deepEqual(sumByTypes([]), ['', 0]);
+assert.deepEqual(sumByTypes([1, 2, 3]), ['', 6]);
+assert.deepEqual(sumByTypes(['1', 2, 3]), ['1', 5]);
+assert.deepEqual(sumByTypes(['1', '2', 3]), ['12', 3]);
+assert.deepEqual(sumByTypes(['1', '2', '3']), ['123', 0]);
+assert.deepEqual(sumByTypes(['size', 12, 'in', 45, 0]), ['sizein', 57]);
 
-    // These "asserts" are used for self-checking
-    assert.deepEqual(sumByTypes([]), ['', 0]);
-    assert.deepEqual(sumByTypes([1, 2, 3]), ['', 6]);
-    assert.deepEqual(sumByTypes(['1', 2, 3]), ['1', 5]);
-    assert.deepEqual(sumByTypes(['1', '2', 3]), ['12', 3]);
-    assert.deepEqual(sumByTypes(['1', '2', '3']), ['123', 0]);
-    assert.deepEqual(sumByTypes(['size', 12, 'in', 45, 0]), ['sizein', 57]);
-
-    console.log("Coding complete? Click 'Check' to earn cool rewards!");
-}
+console.log("Coding complete? Click 'Check' to earn cool rewards!");
     
